@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Food</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        input, select {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Post Food</h2>
+
+    <form method="POST">
+        <input type="text" name="food" placeholder="Food Name" required>
+
+        <input type="number" name="qty" placeholder="Quantity" required>
+
+        <select name="unit">
+            <option value="kg">kg</option>
+            <option value="plates">plates</option>
+        </select>
+
+        <!-- 🔥 LOCATION DROPDOWN -->
+        <select name="location">
+            <option value="clement town">Clement Town</option>
+            <option value="subhash nagar">Subhash Nagar</option>
+            <option value="rajpur">Rajpur</option>
+            <option value="prem nagar">Prem Nagar</option>
+            <option value="ballupur">Ballupur</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

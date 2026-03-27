@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Food</title>
+</head>
+<body>
+
+<h2>Available Food</h2>
+
+{% if data %}
+    <p>Food: {{data[0]}}</p>
+    <p>Quantity: {{data[1]}}</p>
+    <p>Location: {{data[2]}}</p>
+
+    <p><b>Assigned NGO (Dijkstra + Greedy):</b> {{ngo}}</p>
+    <p><b>Nearest NGO (BFS):</b> {{bfs_ngo}}</p>
+    <p><b>Verified NGO (Binary Search):</b> {{searched_ngo}}</p>
+
+{% else %}
+    <p>No data</p>
+{% endif %}
+
+</body>
+</html>

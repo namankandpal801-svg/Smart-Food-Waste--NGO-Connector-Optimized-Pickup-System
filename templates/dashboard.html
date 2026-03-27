@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f7fb;
+        }
+
+        /* NAVBAR */
+        .nav {
+            background: #2c3e50;
+            padding: 15px;
+            color: white;
+        }
+
+        .nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTENT */
+        .container {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        .role {
+            color: #16a085;
+            margin-bottom: 20px;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: block;
+            width: 220px;
+            margin: 10px auto;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .blue {
+            background-color: #3498db;
+        }
+
+        .green {
+            background-color: #2ecc71;
+        }
+
+        .logout {
+            background-color: #e74c3c;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="nav">
+    <a href="/dashboard">Dashboard</a>
+
+    {% if session['role'] == 'user' %}
+        <a href="/post_food">Post Food</a>
+    {% endif %}
+
+    <a href="/view_food">View Food</a>
+    <a href="/logout">Logout</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <h2>Welcome {{user}}</h2>
+    <p class="role">Role: {{session['role']}}</p>
+
+    {% if session['role'] == 'admin' %}
+        <a href="#" class="btn blue">Admin Panel</a>
+
+    {% elif session['role'] == 'ngo' %}
+        <a href="/view_food" class="btn green">View Food</a>
+
+    {% elif session['role'] == 'user' %}
+        <a href="/post_food" class="btn blue">Post Food</a>
+        <a href="/view_food" class="btn green">View Food</a>
+    {% endif %}
+
+    <a href="/logout" class="btn logout">Logout</a>
+</div>
+
+</body>
+</html>
